@@ -8,7 +8,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div class="App-container">
+        <div className="App-container">
           <Row>
             <Col className="green"
               xs={24}
@@ -16,7 +16,7 @@ class App extends Component {
               lg={{ span: 15, offset: 1 }}>
               <VideoPlayer/>
             </Col>
-            <Col className="purple"
+            <Col
               xs={24}
               md={{ span: 10 }}
               lg={{ span: 7 }}>
