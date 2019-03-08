@@ -9,17 +9,17 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-container">
-          <Row>
+          <Row gutter={16}>
             <Col className="green"
               xs={24}
-              md={{ span: 10, offset: 2 }}
+              md={{ span: 22, offset: 1 }}
               lg={{ span: 15, offset: 1 }}>
               <VideoPlayer/>
             </Col>
             <Col
               xs={24}
-              md={{ span: 10 }}
-              lg={{ span: 7 }}>
+              md={22}
+              lg={7}>
               <Queue/>
             </Col>
           </Row>
