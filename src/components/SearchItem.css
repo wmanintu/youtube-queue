@@ -1,13 +1,4 @@
-.item-container {
-  text-align: left;
-  display: inline-block;
-}
-.video-image {
-  float: left;
-  width: 40%;
-}
-.video-title {
-  padding: 10px;
-  float: left;
-  width: 60%;
+.media:hover {
+  cursor: pointer;
+  background-color: grey;
 }
