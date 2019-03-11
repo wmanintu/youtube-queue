@@ -3,7 +3,7 @@ import './Search.css'
 import { InputGroup, Button, FormControl } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { fetchSearch } from '../actions/searchActions'
-import SearchItem from './SearchItem'
+import Video from './Video'
 
 class Search extends Component {
   constructor(props) {
@@ -26,7 +26,15 @@ class Search extends Component {
   }
   render() {
     const searchResults = this.props.searchResults.map((element, index) => {
-      return <SearchItem title={element.title} thumbnail={element.thumbnail} videoId={element.videoId} key={index} />
+      return <Video
+      title={element.title}
+      thumbnail={element.thumbnail}
+      videoId={element.videoId}
+      key={index}
+      options={{
+        add: true,
+        remove: false
+      }} />
     })
     return (
       <div>
@@ -40,7 +48,6 @@ class Search extends Component {
             <Button variant="outline-secondary" onClick={this.handleButton}>Button</Button>
           </InputGroup.Append>
         </InputGroup>
-        <button onClick={this.pause}>pause</button>
         <div className="search-result">
         { searchResults }
         </div>
@@ -50,8 +57,7 @@ class Search extends Component {
 }
 
 const mapStateToProps = state => ({
-  searchResults: state.search.results,
-  player: state.video.player
+  searchResults: state.search.results
 })
 
 export default connect(mapStateToProps, { fetchSearch })(Search)

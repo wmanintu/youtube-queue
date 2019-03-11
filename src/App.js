@@ -3,7 +3,7 @@ import './App.css'
 import { Col, Tabs, Tab, } from 'react-bootstrap'
 import { Provider } from 'react-redux'
 import store from './store'
-import VideoPlayer from './components/Video'
+import Player from './components/Player'
 import Search from './components/Search'
 import Queue from './components/Queue'
 
@@ -14,7 +14,7 @@ class App extends Component {
         <div className="App">
           <div className="black" >
             <Col xs={12} lg={{offset: 2, span: 8}}>
-              <VideoPlayer />
+              <Player />
             </Col>
           </div>
           <div>
