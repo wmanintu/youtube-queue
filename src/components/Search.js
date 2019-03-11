@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { fetchSearch } from '../actions/searchActions'
 import SearchItem from './SearchItem'
 
-class SearchYoutube extends Component {
+class Search extends Component {
   constructor(props) {
     super(props)
     this.state = { keyword: '' }
@@ -20,6 +20,9 @@ class SearchYoutube extends Component {
     if (event.key === 'Enter') {
       this.props.fetchSearch(this.state.keyword)
     }
+  }
+  pause = () => {
+    this.props.player.pauseVideo()
   }
   render() {
     const searchResults = this.props.searchResults.map((element, index) => {
@@ -37,6 +40,7 @@ class SearchYoutube extends Component {
             <Button variant="outline-secondary" onClick={this.handleButton}>Button</Button>
           </InputGroup.Append>
         </InputGroup>
+        <button onClick={this.pause}>pause</button>
         <div className="search-result">
         { searchResults }
         </div>
@@ -46,7 +50,8 @@ class SearchYoutube extends Component {
 }
 
 const mapStateToProps = state => ({
-  searchResults: state.search.results
+  searchResults: state.search.results,
+  player: state.video.player
 })
 
-export default connect(mapStateToProps, { fetchSearch })(SearchYoutube)
+export default connect(mapStateToProps, { fetchSearch })(Search)

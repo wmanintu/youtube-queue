@@ -1,20 +1,62 @@
 import React, { Component } from 'react'
 import './Video.css'
+import YouTube from 'react-youtube'
+import { connect } from 'react-redux'
+import { setPlayer } from '../actions/videoActions'
 
-// src="https://www.youtube.com/embed/c6t3bW7kx6E"
 class Video extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      videoId: 'qpxWoAsYS2I'
+    }
+  }
+  onReady = (event) => {
+    this.props.setPlayer(event)
+    this.props.player.playVideo()
+  }
+  onPlayerStateChange = (event) => {
+    switch (event.data) {
+      case -1:
+        console.log('unstarted')
+        break
+      case 0:
+        console.log('ended')
+        event.target.playVideo()
+        //remove first queue
+        //play next video
+        break
+      case 1:
+        console.log('playing')
+        break
+      case 2:
+        console.log('paused')
+        break
+      case 3:
+        console.log('buffering')
+        break
+      case 5:
+        console.log('video cued')
+        break
+      default:
+        break
+    }
+  }
   render() {
     return (
-        <iframe
-        title="youtube"
-        width="100%"
-        height="500px"
-        src=""
-        frameBorder="0"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen/>
+      <div className="resp-container">
+        <YouTube className="resp-iframe"
+          videoId={this.state.videoId}
+          onReady={this.onReady}
+          onStateChange={this.onPlayerStateChange}
+          />
+      </div>
     )
   }
 }
 
-export default Video
+const mapStateToProps = state => ({
+  player: state.video.player
+})
+
+export default connect(mapStateToProps, { setPlayer })(Video)
