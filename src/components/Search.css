@@ -1,3 +1,19 @@
 .search-result {
   text-align: left;
 }
+input:focus {
+  outline: none;
+}
+.btn:focus {
+  outline: none;
+}
+.btn-outline-secondary {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+.btn {
+  border-radius: 0px;
+}
+.form-control {
+  border-radius: 0px;
+}

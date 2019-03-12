@@ -10,6 +10,9 @@ class Search extends Component {
     super(props)
     this.state = { keyword: '' }
   }
+  componentDidMount() {
+    this.props.fetchSearch(this.state.keyword)
+  }
   handleButton = () => {
     this.props.fetchSearch(this.state.keyword)
   }
@@ -45,7 +48,9 @@ class Search extends Component {
             onKeyPress={this.handleKeyPress}
           />
           <InputGroup.Append>
-            <Button variant="outline-secondary" onClick={this.handleButton}>Button</Button>
+            <Button variant="outline-secondary" onClick={this.handleButton}>
+              <i className="fas fa-search"></i> Search
+            </Button>
           </InputGroup.Append>
         </InputGroup>
         <div className="search-result">

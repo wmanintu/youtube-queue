@@ -1,4 +1,30 @@
+.media {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
 .media:hover {
   cursor: pointer;
+  color: #14044c;
   background-color: grey;
+}
+.media-body {
+  -ms-flex: 1;
+  flex: 1;
+}
+.video-text {
+  color: #c096bf;
+  font-size: 16px;
+  font-weight: bold;
+}
+.btn-outline-secondary {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+.btn {
+  border-radius: 0px;
+}
+.form-control {
+  border-radius: 0px;
 }

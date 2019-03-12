@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import './Video.css'
 import { connect } from 'react-redux'
-import { Media } from 'react-bootstrap'
 import { addToQueue } from '../actions/queueActions'
 
 class SearchItem extends Component {
@@ -17,17 +16,17 @@ class SearchItem extends Component {
   render() {
     let { thumbnail, title } = this.props
     return (
-      <Media onClick={this.handleClick}>
+      <div className="media" onClick={this.handleClick}>
         <img
           width={120}
           height={90}
           className="mr-3"
           src={thumbnail}
           alt="Generic placeholder" />
-        <Media.Body className="media-body">
-          <h5>{title}</h5>
-        </Media.Body>
-      </Media>
+        <div className="media-body">
+          <div className="video-text">{title}</div>
+        </div>
+      </div>
     )
   }
 }
