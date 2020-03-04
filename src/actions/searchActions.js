@@ -1,7 +1,7 @@
 import { FETCH_SEARCH } from './types'
 import axios from 'axios'
 
-const key = 'AIzaSyA4HzEj8jUbv3LlYBASlXbyqLZFfanoUhk'
+const key = 'AIzaSyAKJ2KgVG81jGGtSvTyDiOyaK0xFQ_9HfM'
 const youtubeApi = 'https://www.googleapis.com/youtube/v3/search'
 
 const mapSearchResults = (results) => {
