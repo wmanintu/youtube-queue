@@ -1,7 +1,6 @@
 import { FETCH_SEARCH } from './types'
 import axios from 'axios'
 
-const key = 'AIzaSyA4HzEj8jUbv3LlYBASlXbyqLZFfanoUhk'
 const youtubeApi = 'https://www.googleapis.com/youtube/v3/search'
 
 const mapSearchResults = (results) => {
@@ -16,13 +15,14 @@ const mapSearchResults = (results) => {
 }
 
 export const fetchSearch = (keyword) => {
+  console.log('YOUTUBE_API_KEY:', process.env.REACT_APP_YOUTUBE_API_KEY)
   return async dispatch => {
     let params = {
       part: 'snippet',
       q: keyword,
       type: 'video',
       maxResults: 10,
-      key: key
+      key: process.env.REACT_APP_YOUTUBE_API_KEY
     }
 
     try {
